@@ -8,6 +8,7 @@ This is a repository containing all the tasks from the HNGx internship program.
 ## Featured files and tasks
   
 **Task 1**
+  
 In this task, we are required to create an api endpoint that returns the following information in JSON format;
 - Slack name
 - Current day of the week
