@@ -10,7 +10,7 @@ day_of_week = datetime.now().strftime("%A")
 
 current_utc_time = datetime.utcnow()
 
-formatted_utc_time = current_utc_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+formatted_utc_time = current_utc_time.strftime('%Y-%d-%mT%H:%M:%SZ')
 
 @app.get("/api")
 def respond(slack_name: str = Query(...), track: str = Query(...)):
