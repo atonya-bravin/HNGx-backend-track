@@ -1,14 +1,16 @@
 from fastapi import FastAPI, Query
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 
 app = FastAPI()
 
+now = datetime.now()
 day_of_week = datetime.now().strftime("%A")
 
-now = datetime.now(timezone.utc)
-formatted_utc_time = now.strftime('%Y-%m-%dT%H:%M:%S%z').replace('+0000', '+00:00')
+current_utc_time = datetime.utcnow()
+
+formatted_utc_time = current_utc_time.strftime('%Y-%m-%dT%H:%M:%SZ')
 
 @app.get("/api")
 def respond(slack_name: str = Query(...), track: str = Query(...)):
