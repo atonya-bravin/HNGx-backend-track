@@ -8,7 +8,7 @@ app = FastAPI()
 
 day_of_week = datetime.now().strftime("%A")
 
-utc_time = arrow.utcnow()
+utc_time = arrow.utcnow().format("YYYY-MM-DDTHH:mm:ssZ")
 
 @app.get("/api")
 def respond(slack_name: str = Query(...), track: str = Query(...)):
