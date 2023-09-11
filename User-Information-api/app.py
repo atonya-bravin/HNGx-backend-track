@@ -1,3 +1,4 @@
+import arrow
 from fastapi import FastAPI, Query
 
 from datetime import datetime
@@ -5,10 +6,9 @@ from datetime import datetime
 
 app = FastAPI()
 
-now = datetime.now()
 day_of_week = datetime.now().strftime("%A")
 
-utc_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+utc_time = arrow.utcnow()
 
 @app.get("/api")
 def respond(slack_name: str = Query(...), track: str = Query(...)):
