@@ -25,9 +25,9 @@ app.get('/api', (req, res) => {
     const githubFileUrl = "https://github.com/atonya-bravin/HNGx-backend-track/blob/main/User-Information-api/app.js";
     const githubRepoUrl = "https://github.com/atonya-bravin/HNGx-backend-track/tree/main";
 
-    const {slackName, track} = req.query;
+    const {slack_name, track} = req.query;
     const response = {
-        slack_name: slackName,
+        slack_name: slack_name,
         current_day: day,
         utc_time: utc_time,
         track: track,
