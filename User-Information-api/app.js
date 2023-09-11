@@ -15,7 +15,7 @@ const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fri
 
 day = daysOfWeek[day];
 
-utc_time = moment.utc().format('YYYY-MM-DDTHH:mm:ss[Z]');
+utc_time = moment().utc().format('YYYY-MM-DDTHH:mm:ss[Z]');
 
 app.get('/', (req, res) => {
     res.send('Welcome to my HNGx the API is working!');
