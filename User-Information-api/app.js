@@ -1,5 +1,7 @@
 const express = require("express");
 
+const moment = require("moment");
+
 const port  = process.env.PORT || 3000;
 
 const app = express();
@@ -7,11 +9,13 @@ const app = express();
 app.listen(port, ()=>{
     console.log(`App is listening to port ${port}`);
 });
+
+let day = moment().day();
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-day = daysOfWeek[new Date().getDay()];
+day = daysOfWeek[day];
 
-utc_time = new Date().toISOString().replace(/\.\d+/, "");
+utc_time = moment.utc().format('YYYY-MM-DDTHH:mm:ss[Z]');
 
 app.get('/', (req, res) => {
     res.send('Welcome to my HNGx the API is working!');
