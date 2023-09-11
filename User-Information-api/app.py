@@ -22,4 +22,4 @@ def respond(slack_name: str = Query(...), track: str = Query(...)):
         "status_code": 200
     }
 
-    return json.dumps(response)
+    return json.dumps(response, indent=4)
