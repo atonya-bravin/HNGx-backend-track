@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const person = require("./model/person")
 
-mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net:27017", {useNewUrlParser: true, useUnifiedTopology: true})
 
 app = express();
 
