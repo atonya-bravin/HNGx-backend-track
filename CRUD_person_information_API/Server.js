@@ -11,26 +11,31 @@ app.get("/", (req, res) => {
     res.end("Welcome to my application API");
 });
 
+app.get("/api",async (req, res) => {
+    user_name = req.query.user_name;
+    user_age = req.query.user_age;
+    user_email = req.query.user_email;
+    await person.create({
+        name: user_name,
+        age: user_age,
+        email: user_email
+    }).then((results) => {
+        return res.status(200).send(`User added successfully with USER_ID: ${results._id}`);
+    }).catch((error) => {
+        console.log(error);
+        return res.status(500).send("Sorry the USER_ID already exists");
+        
+    });
+});
+
 app.get("/api/:id",async (req, res) => {
-    user_id = req.params.id;
     action = req.query.action;
     user_name = req.query.user_name;
     user_age = req.query.user_age;
     user_email = req.query.user_email;
-    if( action == "create"){
-        await person.create({
-            _id: user_id,
-            name: user_name,
-            age: user_age,
-            email: user_email
-        }).then(() => {
-            return res.status(200).send(`${action} user of ID ${user_id}`);
-        }).catch((error) => {
-            return res.status(500).send("Sorry the USER_ID already exists");
-        });
-    }
-    else if( action == "delete"){
+   if( action == "delete"){
         try{
+            user_id = req.params.id;
             deletedItem = await person.findByIdAndDelete(user_id);
             if(!deletedItem){
                 return res.status(500).send("Error: Sorry no item with that ID");
@@ -43,6 +48,7 @@ app.get("/api/:id",async (req, res) => {
     }
     else if( action == "update"){
         try{
+            user_id = req.params.id;
             updatedItem = await person.findByIdAndUpdate(user_id, {
                 name: user_name,
                 age: user_age,
@@ -58,11 +64,20 @@ app.get("/api/:id",async (req, res) => {
         }
     }
     else if(action == "read"){
+        user_id = req.params.id;
         person.findById(user_id).then((result)=>{
-            return res.status(200).send(result)
+            return res.status(200).send(result);
         }).catch((error)=>{
             return res.status(500).send("Error: Sorry there was a problem reading the data.")
         });
+    }
+    else if(action == "readAll"){
+        await person.find({}).then((results)=>{
+            return res.status(200).send(results);
+        }).catch((error)=>{
+            return res.status(500).send("Error: There was an error retriving the results");
+        });
+        
     }
     else{
         return res.status(500).send("Error: The action is not a CRUD option");
