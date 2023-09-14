@@ -16,12 +16,14 @@ The API can be used in two basic ways;
 **User Creation**
   
 This is an example of how to add users to the CRUD API
+  
     ```
     https://crud-person-information-api.onrender.com/api?user_name=Bravin&user_age=25&user_email=bravinatonya@gmail.com
     ```
   
 **Request type** ==> **POST**
     This will create a user and insert the provided information to the database. It will then return a message showing you the ID of the user added as under;
+  
     ```
     User added successfully with USER_ID: 5e620ac5-5549-410e-b32c-19826f75caa7
     ```
@@ -29,6 +31,7 @@ This is an example of how to add users to the CRUD API
 **User Update**
   
 This is an example of how to update user information on the CRUD API using the ***action*** query parameter.
+  
    ```
     https://crud-person-information-api.onrender.com/api/5e620ac5-5549-410e-b32c-19826f75caa7?action=update&user_name=Bravin&user_age=25&user_email=bravinatonya@gmail.com
    ```
@@ -37,17 +40,20 @@ This is an example of how to update user information on the CRUD API using the *
   
    To update the information of the user in the database, we use the ***action*** query parameter. We also suply the USER_ID in the path to facilitate an update to a specific user.
    This will return the following message to show success
+  
    ```
    Updated user of id 5e620ac5-5549-410e-b32c-19826f75caa7 successfully
    ```
 **User Deletion**
   
 This is an example of how to delete user information on the CRUD API using the ***action*** query parameter.
+  
    ```
    https://crud-person-information-api.onrender.com/api/5e620ac5-5549-410e-b32c-19826f75caa7?action=delete
    ```
    To delete the information of the user in the database, we use the ***action*** query parameter. We also suply the USER_ID in the path to facilitate a deletion of a specific user.
    This will return the following message to show success
+  
    ```
    Deleted user of id 5e620ac5-5549-410e-b32c-19826f75caa7 successfully
    ```
@@ -57,11 +63,13 @@ This is an example of how to delete user information on the CRUD API using the *
   - Single user retrival
   This is the retrival of information of a specific user using the user's USER_ID.
     This is an example of how to retrive user information on the CRUD API using the ***action*** query parameter.
+  
    ```
    https://crud-person-information-api.onrender.com/api/246c64b6-5e5a-4e5d-b968-4bdf1359040d?action=read
    ```
    To read the information of a specific user from the database, we use the ***action*** query parameter. We also suply the USER_ID in the path to facilitate a retrival of a specific user.
    This will return the following message to show success
+  
    ```
       {
         "_id": "246c64b6-5e5a-4e5d-b968-4bdf1359040d",
@@ -74,11 +82,13 @@ This is an example of how to delete user information on the CRUD API using the *
    - Full Person document retrival
    This is the retrival of information of contained in the person document.
     This is an example of how to retrive user information on the CRUD API using the ***action*** query parameter.
+  
    ```
    https://crud-person-information-api.onrender.com/api/246c64b6-5e5a-4e5d-b968-4bdf1359040d?action=readAll
    ```
    To read the information of a specific user from the database, we use the ***action*** query parameter. We also suply the USER_ID in the path to facilitate a retrival of a specific user.
    This will return the following message to show success
+  
    ```
       [
         {
