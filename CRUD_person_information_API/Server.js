@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const port  = process.env.PORT || 3000;
+
 const person = require("./model/person")
 
 app = express();
@@ -83,6 +85,6 @@ app.get("/api/:id",async (req, res) => {
         return res.status(500).send("Error: The action is not a CRUD option");
     }
 })
-app.listen(5000, ()=>{
-    console.log("Server listening to port 5000");
+app.listen(`${port}`, ()=>{
+    console.log(`Server listening to port ${port}`);
 })
