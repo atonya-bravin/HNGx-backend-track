@@ -14,28 +14,35 @@ The API can be used in two basic ways;
 - The API can also be used through it's [public domain](https://crud-person-information-api.onrender.com)
 ### Exmaple of Usage
 **User Creation**
-   This is an example of how to add users to the CRUD API
+  
+This is an example of how to add users to the CRUD API
     ```
     https://crud-person-information-api.onrender.com/api?user_name=Bravin&user_age=25&user_email=bravinatonya@gmail.com
     ```
-    **Request type** ==> **POST**
+  
+**Request type** ==> **POST**
     This will create a user and insert the provided information to the database. It will then return a message showing you the ID of the user added as under;
     ```
     User added successfully with USER_ID: 5e620ac5-5549-410e-b32c-19826f75caa7
     ```
+  
 **User Update**
-   This is an example of how to update user information on the CRUD API using the ***action*** query parameter.
+  
+This is an example of how to update user information on the CRUD API using the ***action*** query parameter.
    ```
     https://crud-person-information-api.onrender.com/api/5e620ac5-5549-410e-b32c-19826f75caa7?action=update&user_name=Bravin&user_age=25&user_email=bravinatonya@gmail.com
    ```
-   **Request type** ==> **Get**
+  
+**Request type** ==> **Get**
+  
    To update the information of the user in the database, we use the ***action*** query parameter. We also suply the USER_ID in the path to facilitate an update to a specific user.
    This will return the following message to show success
    ```
    Updated user of id 5e620ac5-5549-410e-b32c-19826f75caa7 successfully
    ```
 **User Deletion**
-   This is an example of how to delete user information on the CRUD API using the ***action*** query parameter.
+  
+This is an example of how to delete user information on the CRUD API using the ***action*** query parameter.
    ```
    https://crud-person-information-api.onrender.com/api/5e620ac5-5549-410e-b32c-19826f75caa7?action=delete
    ```
@@ -45,6 +52,7 @@ The API can be used in two basic ways;
    Deleted user of id 5e620ac5-5549-410e-b32c-19826f75caa7 successfully
    ```
 **User Information Retrival**
+  
   The application has two ways of retriving it's data.
   - Single user retrival
   This is the retrival of information of a specific user using the user's USER_ID.
