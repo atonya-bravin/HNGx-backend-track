@@ -3,16 +3,25 @@ const mongoose = require("mongoose");
 
 const port  = process.env.PORT || 3000;
 
-const person = require("./model/person")
+const person = require("./model/person");
 
+mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+
+db = mongoose.connection;
+db.on('error', (error) => {
+    return ('MongoDB connection error:', error);
+  });
+  
+  db.once('open', () => {
+    return ('Connected to MongoDB Atlas');
+  });
 app = express();
 
 app.get("/", (req, res) => {
     res.end("Welcome to my application API");
 });
 
-app.get("/api",async (req, res) => {
-    await mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+app.post("/api",async (req, res) => {
     user_name = req.query.user_name;
     user_age = req.query.user_age;
     user_email = req.query.user_email;
@@ -30,7 +39,6 @@ app.get("/api",async (req, res) => {
 });
 
 app.get("/api/:id",async (req, res) => {
-    await mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
     action = req.query.action;
     user_name = req.query.user_name;
     user_age = req.query.user_age;
