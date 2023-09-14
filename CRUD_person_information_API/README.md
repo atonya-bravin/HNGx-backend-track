@@ -22,6 +22,7 @@ This is an example of how to add users to the CRUD API
     ```
   
 **Request type** ==> **POST**
+  
     This will create a user and insert the provided information to the database. It will then return a message showing you the ID of the user added as under;
   
     ```
