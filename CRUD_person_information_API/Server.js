@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 
 const person = require("./model/person")
 
-mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
-
 app = express();
 
 app.get("/", (req, res) => {
@@ -12,6 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api",async (req, res) => {
+    await mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
     user_name = req.query.user_name;
     user_age = req.query.user_age;
     user_email = req.query.user_email;
@@ -29,6 +28,7 @@ app.get("/api",async (req, res) => {
 });
 
 app.get("/api/:id",async (req, res) => {
+    await mongoose.connect("mongodb+srv://bravin:infortechexp460@cluster0.dmw1xy6.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
     action = req.query.action;
     user_name = req.query.user_name;
     user_age = req.query.user_age;
