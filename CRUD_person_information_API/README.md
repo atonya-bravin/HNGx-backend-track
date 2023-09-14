@@ -125,16 +125,24 @@ This is an example of how to delete user information on the CRUD API using the *
    ```
 ## API End Points
 - **CREATE**: Adding a new person ```/api```
+  
   This is the API End-Point we are using to add new users, who will be added with a random uuuid USER_ID.
 - **READ**: Fetching details of a person ```/api/user_id```
+  
   This is the API End-Point we are using to perform all the other CRUD operations other than Create
+  
   To read specific user information, we use the query parameter ```action=read```
+  
   To read all user information, we use the query parameter ```action=readAll```
 - **Delete**: Removing a person  ```/api/user_id```
+  
   This is the API End-Point we are using to perform all the other CRUD operations other than Create
+
   To delete, we use the query parameter ```action=delete```
 - **Update**: Modifying details of an existing person ```/api/user_id```
+  
   This is the API End-Point we are using to perform all the other CRUD operations other than Create
+    
   To delete, we use the query parameter ```action=update```
 
 ## Query parameters to use
