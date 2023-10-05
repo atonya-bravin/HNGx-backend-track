@@ -36,8 +36,9 @@ app.post('/api/upload', (req, res) => {
     });
 });
 
-app.get('/api/video/:filename', (req, res) => {
-    const filename = req.params.filename;
+app.get('/api/video', (req, res) => {
+    const filename = req.query.filename;
+    console.log(req.params.filename);
     const videoPath = `./uploads/${filename}`;
 
     const range = req.headers.range
@@ -91,8 +92,8 @@ const openai = new OpenAI({
 });
 
 // Transcribe audio
-app.get('/api/transcription/:filename', async (req, res) => {
-    const filename = req.params.filename
+app.get('/api/transcription', async (req, res) => {
+    const filename = req.query.filename
     console.log("filenameT:", filename)
     const transcript = await transcribeAudio(filename);
     console.log("transcription:", transcript)
