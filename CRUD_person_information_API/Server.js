@@ -26,6 +26,9 @@ app.post("/api",async (req, res) => {
     user_name = req.query.user_name;
     user_age = req.query.user_age;
     user_email = req.query.user_email;
+    if(!user_name || !user_age || !user_email){
+        return res.status(400).send("Kindly check the information provided and try again");
+    }
     await person.create({
         name: user_name,
         age: user_age,
