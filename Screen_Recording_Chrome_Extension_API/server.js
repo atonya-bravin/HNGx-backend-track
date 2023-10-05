@@ -3,7 +3,7 @@ const busboy = require('connect-busboy');
 const path = require('path');
 const app = express();
 const OpenAI = require('openai')
-// const fs = require('fs')
+const fs = require('fs')
 const fs = require('fs-extra');
 require('dotenv').config()
 
